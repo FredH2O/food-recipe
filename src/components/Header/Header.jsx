@@ -1,4 +1,4 @@
-import { CubeIcon, Bars3Icon } from "@heroicons/react/24/solid";
+import { Bars3Icon, BookOpenIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
 const Header = () => {
@@ -9,8 +9,8 @@ const Header = () => {
       <nav className="flex items-center justify-between p-4">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <CubeIcon className="h-6 w-6 text-white" />
-          <span className="text-lg font-bold">MySite</span>
+          <BookOpenIcon className="h-6 w-6 text-white" />
+          <span className="text-lg font-bold">Recipe Info</span>
         </div>
 
         {/* Links */}
@@ -41,8 +41,12 @@ const Header = () => {
           <Bars3Icon className="h-6 w-6 text-white" />
         </button>
       </nav>
-      {isMenuOpen ? (
-        <ul className="lg:hidden flex flex-col items-center space-y-4 mt-4">
+      <div
+        className={`${
+          isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+        } overflow-hidden transition-all duration-700 ease-in-out`}
+      >
+        <ul className="lg:hidden flex flex-col items-center space-y-4 mt-4 mb-4">
           <li>
             <a href="#" className="hover:text-gray-300">
               Home
@@ -59,7 +63,7 @@ const Header = () => {
             </a>
           </li>
         </ul>
-      ) : null}
+      </div>
     </div>
   );
 };
