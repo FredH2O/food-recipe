@@ -5,7 +5,12 @@ const RecipeCard = () => {
 
       <div className="px-6 py-4">
         <h2 className="font-bold text-xl mb-2 truncate">Recipe Here</h2>
-        <p className="text-gray-700 text-sm line-clamp-3">Description here</p>
+        <p className="text-gray-700 text-sm line-clamp-5">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ipsa
+          alias a eaque vitae qui autem saepe aut cupiditate amet consectetur
+          modi labore quisquam provident voluptatem aliquid officiis, repellat
+          animi!
+        </p>
       </div>
 
       <div className="px-6 pt-4 pb-2">
