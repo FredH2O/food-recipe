@@ -1,5 +1,6 @@
 import { Bars3Icon, BookOpenIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,19 +17,17 @@ const Header = () => {
         {/* Links */}
         <ul className="hidden lg:flex space-x-4">
           <li>
-            <a href="#" className="hover:text-gray-300">
+            <Link to="/" className="hover:text-gray-300">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-gray-300">
+            <Link to="/about" className="hover:text-gray-300">
               About Us
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-gray-300">
-              Contact
-            </a>
+            <Link className="hover:text-gray-300">Contact</Link>
           </li>
         </ul>
 
@@ -48,19 +47,17 @@ const Header = () => {
       >
         <ul className="lg:hidden flex flex-col items-center space-y-4 mt-4 mb-4">
           <li>
-            <a href="#" className="hover:text-gray-300">
+            <Link to="/" className="hover:text-gray-300">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-gray-300">
+            <Link to="/about" className="hover:text-gray-300">
               About Us
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-gray-300">
-              Contact
-            </a>
+            <Link className="hover:text-gray-300">Contact</Link>
           </li>
         </ul>
       </div>
