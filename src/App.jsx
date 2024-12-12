@@ -1,7 +1,9 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import RecipeCard from "./components/RecipeCard/RecipeCard";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import SearchRecipe from "./components/SearchRecipe/SearchRecipe";
 
 function App() {
   return (
@@ -9,7 +11,8 @@ function App() {
       <header>
         <Header />
       </header>
-      <div className="flex flex-1 justify-center items-center overflow-hidden">
+      <div className="flex flex-1 flex-col justify-evenly items-center overflow-hidden">
+        <SearchRecipe />
         <RecipeCard />
       </div>
       <footer>
