@@ -8,8 +8,14 @@ const MainLayout = () => {
       <header>
         <Header />
       </header>
-      <div className="flex flex-1 flex-col justify-evenly items-center overflow-hidden">
-        <Outlet />
+      <div
+        className="flex flex-1 justify-center items-center relative bg-cover bg-center"
+        style={{ backgroundImage: "url(/images/foodBackground.jpg)" }}
+      >
+        <div className="absolute inset-0 bg-black opacity-60"></div>
+        <div className="flex flex-col gap-5 z-10">
+          <Outlet />
+        </div>
       </div>
       <footer>
         <Footer />
