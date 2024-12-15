@@ -20,7 +20,7 @@ const SearchRecipe = () => {
         className="p-2 w-full max-w-md rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
       />
 
-      <button className="bg-green-400 text-white rounded w-fit p-2 m-1">
+      <button className="bg-green-500 hover:bg-green-600 font-bold text-white rounded w-fit p-2 m-1">
         Search
       </button>
     </form>
