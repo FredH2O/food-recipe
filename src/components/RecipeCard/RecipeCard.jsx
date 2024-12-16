@@ -41,15 +41,59 @@ const RecipeCard = () => {
       </div>
 
       <div className="px-6 pt-4 pb-2">
-        <span className="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
-          Tag 1
-        </span>
-        <span className="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">
-          Tag 2
-        </span>
-        <span className="inline-block bg-yellow-100 text-yellow-800 text-sm px-3 py-1 rounded-full">
-          Tag 3
-        </span>
+        {recipe.cheap && (
+          <span
+            title="Cheap and Affordable"
+            className="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full"
+          >
+            💰
+          </span>
+        )}
+
+        {recipe.cookingMinutes < 10 ? (
+          <span
+            title="Quick Meal"
+            className="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full"
+          >
+            ⌚
+          </span>
+        ) : null}
+
+        {recipe.dairyFree && (
+          <span
+            title="Dairy-free"
+            className="inline-block bg-yellow-100 text-cyan-400 text-sm px-3 py-1 rounded-full"
+          >
+            {recipe.dairyFree && "🥛"}
+          </span>
+        )}
+
+        {recipe.glutenFree && (
+          <span
+            title="Gluten-free"
+            className="inline-block bg-yellow-100 text-orange-400 text-sm px-3 py-1 rounded-full"
+          >
+            🌾
+          </span>
+        )}
+
+        {recipe.vegetarian && (
+          <span
+            title="Vegetarian"
+            className="inline-block bg-yellow-100 text-lime-500 text-sm px-3 py-1 rounded-full"
+          >
+            🌿
+          </span>
+        )}
+
+        {recipe.veryHealthy && (
+          <span
+            title="Healthy"
+            className="inline-block bg-yellow-100 text-amber-800 text-sm px-3 py-1 rounded-full"
+          >
+            💪🏻
+          </span>
+        )}
       </div>
 
       <div className="px-6 py-4 flex justify-between items-center">
@@ -57,6 +101,7 @@ const RecipeCard = () => {
           className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded font-bold"
           href={recipe.spoonacularSourceUrl}
           target="_blank"
+          title="More info!"
         >
           View Recipe
         </a>
