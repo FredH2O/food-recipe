@@ -11,7 +11,7 @@ const Header = () => {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <BookOpenIcon className="h-6 w-6 text-white" />
-          <span className="text-lg font-bold">Recipe Info</span>
+          <span className="text-lg font-bold">Random Recipe</span>
         </div>
 
         {/* Links */}
@@ -27,7 +27,9 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link className="hover:text-gray-300">Contact</Link>
+            <Link to="/survey" className="hover:text-gray-300">
+              Survey
+            </Link>
           </li>
         </ul>
 
@@ -43,7 +45,7 @@ const Header = () => {
       <div
         className={`${
           isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        } overflow-hidden transition-all duration-700 ease-in-out`}
+        } overflow-hidden transition-all duration-300 ease-in-out`}
       >
         <ul className="lg:hidden flex flex-col items-center space-y-4 mt-4 mb-4">
           <li>
@@ -57,7 +59,9 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link className="hover:text-gray-300">Contact</Link>
+            <Link to="/survey" className="hover:text-gray-300">
+              Survey
+            </Link>
           </li>
         </ul>
       </div>

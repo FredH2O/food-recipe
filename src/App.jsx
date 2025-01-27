@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./components/layouts/MainLayout";
 import RecipeCard from "./components/RecipeCard/RecipeCard";
-import SearchRecipe from "./components/SearchRecipe/SearchRecipe";
 import AboutUs from "./components/AboutUs/AboutUs";
+import SurveyForm from "./components/SurveyForm";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +13,6 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <>
-            <SearchRecipe />
             <RecipeCard />
           </>
         ),
@@ -21,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <AboutUs />,
+      },
+      {
+        path: "survey",
+        element: <SurveyForm />,
       },
     ],
   },
