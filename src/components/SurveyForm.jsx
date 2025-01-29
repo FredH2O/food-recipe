@@ -1,62 +1,138 @@
+import { useState } from "react";
+
 const SurveyForm = () => {
+  const [form, setForm] = useState({
+    name: "",
+    choices: "",
+    feedback: "",
+    textarea: "",
+    term: false,
+  });
+
+  const handleChange = (e) => {
+    const { name, type, checked, value } = e.target;
+
+    setForm((prev) => {
+      const updatedForm = {
+        ...prev,
+        [name]: type === "checkbox" ? checked : value,
+      };
+      console.log(updatedForm);
+
+      return updatedForm;
+    });
+  };
+
   return (
     <form
       action=""
-      className="max-w-md w-screen flex flex-col border-2 rounded p-3 space-y-2 bg-slate-800 text-zinc-100"
+      className="max-w-md w-full flex flex-col border-2 rounded-lg p-4 space-y-4 bg-slate-800 text-zinc-100 shadow-lg"
     >
-      {/* name */}
-      <label htmlFor="" className="text-xl">
-        Name
-      </label>
+      {/* Name */}
+      <label className="text-lg font-medium">Name</label>
       <input
         type="text"
-        className="p-1 rounded text-black w-1/2"
+        className="p-2 rounded-md text-black w-full border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
         maxLength={15}
+        name="name"
+        onChange={handleChange}
       />
 
-      {/* where did you hear us from ? // radio choices  */}
-      <div className="space-y-1">
-        <label htmlFor="" className="text-xl">
+      {/* Where did you hear about us? */}
+      <fieldset className="space-y-2">
+        <legend className="text-lg font-medium">
           Where did you hear about us?
-        </label>
+        </legend>
 
-        <div className="space-x-1">
-          <input type="radio" id="friend" value="friend" name="choices" />
-          <label htmlFor="friend">Friend</label>
+        <div className="flex items-center space-x-2">
+          <input
+            type="radio"
+            id="friend"
+            value="friend"
+            name="choices"
+            checked={form.choices === "friend"}
+            className="accent-blue-400"
+            onChange={handleChange}
+          />
+          <label htmlFor="friend" className="cursor-pointer">
+            Friend
+          </label>
         </div>
 
-        <div className="space-x-1">
-          <input type="radio" id="google" value="google" name="choices" />
-          <label htmlFor="google">Google Search</label>
+        <div className="flex items-center space-x-2">
+          <input
+            type="radio"
+            id="google"
+            value="google"
+            checked={form.choices === "google"}
+            name="choices"
+            className="accent-blue-400"
+            onChange={handleChange}
+          />
+          <label htmlFor="google" className="cursor-pointer">
+            Google Search
+          </label>
         </div>
 
-        <div className="space-x-1">
-          <input type="radio" id="ads" value="ads" name="choices" />
-          <label htmlFor="ads">Advertisement</label>
+        <div className="flex items-center space-x-2">
+          <input
+            type="radio"
+            id="ads"
+            value="ads"
+            name="choices"
+            onChange={handleChange}
+            checked={form.choices === "ads"}
+            className="accent-blue-400"
+          />
+          <label htmlFor="ads" className="cursor-pointer">
+            Advertisement
+          </label>
         </div>
-      </div>
+      </fieldset>
 
-      {/* whats your ethnicity ? select option choices*/}
-      <label htmlFor="" className="text-xl">
-        Did the web app help you in anyways ?
+      {/* Did the web app help? */}
+      <label className="text-lg font-medium">
+        Did the app help you in any way?
       </label>
-      <select name="" id="" className="text-slate-600 p-1 rounded w-1/2">
+      <select
+        className="text-slate-600 p-2 rounded-md w-full border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
+        name="feedback"
+        onChange={handleChange}
+      >
         <option value="">Choose one.</option>
-        <option value="">I try to do it fast.</option>
-        <option value="">Slow, making sure everything is right.</option>
-        <option value="">I just go with the flow.</option>
+        <option value="Yes">Yes, somehow 😄.</option>
+        <option value="No">Nope, didn't help 😣.</option>
+        <option value="Abit">A bit 🤨.</option>
       </select>
 
-      <label htmlFor=""> Any other comment? </label>
-      <textarea name="" id="" rows={5} maxLength={500}></textarea>
+      {/* Comments */}
+      <label className="text-lg font-medium">Any other comments?</label>
+      <textarea
+        rows={5}
+        maxLength={500}
+        name="textarea"
+        onChange={handleChange}
+        className="p-2 rounded-md w-full border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none text-black"
+      ></textarea>
 
-      {/* checkbox // terms */}
-      <div>
-        <input type="checkbox" />
-        <label htmlFor="">Do you agree to our terms and condition</label>
+      {/* Terms & Conditions */}
+      <div className="flex items-center space-x-2">
+        <input
+          type="checkbox"
+          checked={form.term}
+          name="term"
+          className="accent-blue-400"
+          onChange={handleChange}
+        />
+        <label className="cursor-pointer">
+          I agree to the terms and conditions
+        </label>
       </div>
 
-      <button className="bg-blue-400 w-1/3 rounded">Submit</button>
+      {/* Submit Button */}
+      <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-md w-full transition">
+        Submit
+      </button>
     </form>
   );
 };
