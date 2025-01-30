@@ -21,8 +21,8 @@ const AboutUs = () => {
 
         <img
           className="xl:ml-6 rounded-xl shad border-white-700 border-2 flex-1 object-cover md:max-w-md"
-          src="/images/foodOne.png"
-          alt=""
+          src="/food-recipe/images/foodOne.png"
+          alt="About Us Image"
         />
       </div>
     </div>
